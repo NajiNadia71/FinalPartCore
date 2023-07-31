@@ -1,0 +1,119 @@
+﻿@model ViewModelAnd.GroupNameVM
+@{
+    Layout = "_LayoutForPartialModel";
+    var AllRolesThatGroupRoleDosentHave = ViewBag.AllRolesThatGroupRoleDosentHave as ICollection<Model.ModelClass.Role>;
+}
+
+<html lang="en">
+
+<head>
+    <style>
+        li {
+            display: inline;
+        }
+
+        table {
+            counter-reset: rowNumber;
+        }
+
+            table tr::before {
+                display: table-cell;
+                counter-increment: rowNumber;
+                content: counter(rowNumber) ".";
+                padding-right: 0.3em;
+                padding-bottom: 0.1em;
+                text-align: right;
+            }
+    </style>
+
+    <title> </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+    <script>
+
+
+
+    </script>
+
+
+
+</head>
+
+<body>
+    <div class="modal-header">
+        <h4 class="modal-title">@Model.Title with Desc @Model.Description </h4>
+
+    </div>
+
+    <div class="modal-body">
+
+        <form class="Create-Role-for-eachuser-form" action="#" method="post">
+
+            <br />
+            <div class="row" id="PlaceToAddExtraRoleForUser">
+                <div class="col-5" data-toggle="dropdown">
+                    <select id="myDropDownGroupRolesForGroupRole">
+                        <option value='00000000-0000-0000-0000-000000000000'>Choose Role</option>
+                        @if (AllRolesThatGroupRoleDosentHave != null)
+                        {
+                            foreach (var item in AllRolesThatGroupRoleDosentHave)
+                            {
+                                <option value="@item.Id">@item.Title</option>
+                            }
+                        }
+                        }
+
+                    </select>
+
+
+
+                </div>
+
+
+
+                <div class="col-5">
+                    <a id="@Model.Id" onclick="AddRoleToGroupRole(this.id)" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+            <div class="row margtop20">
+
+                <table class="table table-striped">
+                    <tr>
+                        <th> Name </th>
+
+                        <th>Delete</th>
+
+
+                    </tr>
+
+                    @foreach (var item in @Model.RoleGroupVMs)
+
+                    {
+
+                        <tr>
+                            <td>
+                                @item.RoleITitle
+                            </td>
+
+                            <th> <a id="@item.Id" onclick="DeleteRoleForGroupRole(this.id)" class=" btn btn-primary">Delete</a></th>
+
+                        </tr>
+
+                    }
+
+                </table>
+
+            </div>
+
+
+
+
+
+        </form>
+    </div>
+</body>
+
+</html>

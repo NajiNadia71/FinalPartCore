@@ -1,0 +1,30 @@
+2023-07-15 10:23:58.4728|0|DEBUG|Program|init main |url: |action: 
+2023-07-15 10:23:59.1086|0|ERROR|Program|Stopped program because of exception Microsoft.Extensions.Hosting.HostFactoryResolver+HostingListener+HostAbortedException: Exception of type 'Microsoft.Extensions.Hosting.HostFactoryResolver+HostingListener+HostAbortedException' was thrown.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Nadia\Projects\core\RoleBasedAndJWT\RoleBasedAndJWTapi\Program.cs:line 75|url: |action: 
+2023-07-15 10:26:58.3279|0|DEBUG|Program|init main |url: |action: 
+2023-07-15 10:31:23.2915|0|DEBUG|Program|init main |url: |action: 
+2023-07-15 10:53:03.1343|0|DEBUG|Program|init main |url: |action: 
+2023-07-15 10:56:12.6526|0|DEBUG|Program|init main |url: |action: 
+2023-07-15 11:31:15.7434|0|DEBUG|Program|init main |url: |action: 
+2023-07-15 11:31:15.9452|0|ERROR|Program|Stopped program because of exception Microsoft.Extensions.Hosting.HostFactoryResolver+HostingListener+HostAbortedException: Exception of type 'Microsoft.Extensions.Hosting.HostFactoryResolver+HostingListener+HostAbortedException' was thrown.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Nadia\Projects\core\RoleBasedAndJWT\RoleBasedAndJWTapi\Program.cs:line 75|url: |action: 
+2023-07-15 11:31:35.0814|0|DEBUG|Program|init main |url: |action: 
+2023-07-15 11:35:47.3061|0|DEBUG|Program|init main |url: |action: 
+2023-07-15 11:35:47.4967|0|ERROR|Program|Stopped program because of exception Microsoft.Extensions.Hosting.HostFactoryResolver+HostingListener+HostAbortedException: Exception of type 'Microsoft.Extensions.Hosting.HostFactoryResolver+HostingListener+HostAbortedException' was thrown.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Nadia\Projects\core\RoleBasedAndJWT\RoleBasedAndJWTapi\Program.cs:line 75|url: |action: 
+2023-07-15 11:36:27.5396|0|DEBUG|Program|init main |url: |action: 

@@ -1,0 +1,125 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = RoleBasedAndJWT
+build_property.RootNamespace = RoleBasedAndJWT
+build_property.ProjectDir = C:\Nadia\Projects\core\RoleBasedAndJWT\RoleBasedAndJWT\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Nadia\Projects\core\RoleBasedAndJWT\RoleBasedAndJWT
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Pages/Shared/_LayoutForPartialModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRGb3JQYXJ0aWFsTW9kZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEFib3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/CreateRoleGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXENyZWF0ZVJvbGVHcm91cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/EditRoleGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEVkaXRSb2xlR3JvdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/GetAllGroupRoleNames.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEdldEFsbEdyb3VwUm9sZU5hbWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/GetAllRolesForUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEdldEFsbFJvbGVzRm9yVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/GetAllRolesGroupsForUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEdldEFsbFJvbGVzR3JvdXBzRm9yVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/GetAllRolesOfGroupRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEdldEFsbFJvbGVzT2ZHcm91cFJvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/GetAllUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEdldEFsbFVzZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/GetUserInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEdldFVzZXJJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/paginationWithBootstrap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXHBhZ2luYXRpb25XaXRoQm9vdHN0cmFwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/PartialModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXFBhcnRpYWxNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/ShowModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXFNob3dNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/UserInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXFVzZXJJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/BasePages/_PartialModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZVBhZ2VzXF9QYXJ0aWFsTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Views/Home/SomeView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTb21lVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Nadia/Projects/core/RoleBasedAndJWT/RoleBasedAndJWT/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-znpczd68f1

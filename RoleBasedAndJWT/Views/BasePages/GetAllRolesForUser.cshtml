@@ -1,0 +1,114 @@
+﻿@model ViewModelAnd.User
+@{
+    Layout = "_LayoutForPartialModel";
+    var AllRolesThatUserDosentHave = ViewBag.RolesthatUserDosentHave as ICollection<Model.ModelClass.Role>;
+}
+
+<html lang="en">
+
+<head>
+    <style>
+        li {
+            display: inline;
+        }
+
+        table {
+            counter-reset: rowNumber;
+        }
+
+            table tr::before {
+                display: table-cell;
+                counter-increment: rowNumber;
+                content: counter(rowNumber) ".";
+                padding-right: 0.3em;
+                padding-bottom: 0.1em;
+                text-align: right;
+            }
+    </style>
+
+    <title>All Users </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+    <script>
+
+       
+        
+    </script>
+
+
+
+</head>
+
+<body>
+    <div class="modal-header">
+        <h4 class="modal-title">@Model.Name With Email :@Model.Email</h4>
+
+    </div>
+
+    <div class="modal-body">
+    
+    <form class="Create-Role-for-eachuser-form" action="#" method="post">
+
+        <br />
+        <div class="row" id="PlaceToAddExtraRoleForUser">
+                <div class="col-5" data-toggle="dropdown">
+                 <select id="myDropDownRoles">
+                        <option value='00000000-0000-0000-0000-000000000000'>Choose Role</option>
+                    @foreach(var  item in AllRolesThatUserDosentHave)
+                    {
+                        <option  value="@item.Id">@item.Title</option>
+                    }
+                </select>
+                
+                   
+     
+                    </div>
+
+
+            
+            <div class="col-5">
+                    <a id="@Model.Id" onclick="AddRolerToUser()" class="btn btn-primary">Add</a>
+                </div>
+    </div>
+        <div class="row margtop20">
+           
+            <table class="table table-striped">
+                <tr>
+                    <th> Name </th>
+                   
+                    <th>Delete</th>
+                   
+
+                </tr>
+
+                @foreach (var item in @Model.UserRoles)
+
+                {
+
+                    <tr>
+                        <td>
+                            @item.RoleName 
+                        </td>
+                       
+                        <th> <a id="@item.UserRoleId" onclick="DeleteUserRole(this.id)" class=" btn btn-primary">Delete</a></th>
+
+                    </tr>
+
+                }
+
+            </table>
+
+        </div>
+     
+      
+
+     
+
+    </form>
+    </div>
+</body>
+
+</html>

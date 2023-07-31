@@ -1,0 +1,114 @@
+﻿<html lang="en">
+    
+<head>
+    
+    <title>How to create Modal Popup in ASP.NET CORE</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+    <script>
+
+        function View() {
+            console.log('sdsdsa');
+
+            $.ajax({
+
+                type: "POST",
+
+                url: '/BasePages/PartialModal/',
+
+                contentType: "application/text; charset=utf-8",
+
+                dataType: "text",
+
+                async: false,
+
+                success: function (data) {
+
+                    $('.modal-body').html(data);
+
+                    $("#myModal").modal("show");
+
+                }
+
+            })
+
+        }
+
+    </script>
+
+
+
+</head>
+<body>
+    <form class="Create-Roles-form" action="#" method="post">
+
+        <br />
+
+        <div class="row">
+
+            <table class="table">
+
+            
+
+              
+                    <tr>
+
+                       
+
+                        <td>
+
+                            <a title="View" onclick="View()"> SomeThing TO click on   </a>
+
+                        </td>
+
+                      
+                    </tr>
+
+            </table>
+
+        </div>
+
+        <br />
+
+        <div class="modal fade" id="myModal" role="dialog">
+
+            <div class="modal-dialog">
+
+
+
+                <!-- Modal content-->
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        <h4 class="modal-title">Information</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+   
+    </body>
+</html>

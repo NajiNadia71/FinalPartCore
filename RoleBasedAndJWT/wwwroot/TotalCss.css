@@ -1,0 +1,19 @@
+﻿body {
+}
+
+.navbar-inverse {
+    background-color: #080063 !important;
+}
+
+.SetItemsAside {
+    display: inline-block;
+}
+
+.container {
+    padding-top: 8%;
+}
+.navbarColor {
+    background-color: #080063 !important;
+    padding-top:0;
+    padding-bottom:0;
+}

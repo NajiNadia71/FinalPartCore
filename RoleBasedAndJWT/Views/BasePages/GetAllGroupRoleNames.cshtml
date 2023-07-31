@@ -1,0 +1,302 @@
+﻿@model IEnumerable<ViewModelAnd.GroupNameVM>
+@{
+    Layout = "_Layout";
+}
+
+
+<html lang="en">
+
+<head>
+    <style>
+        li {
+            display: inline;
+        }
+
+        table {
+            counter-reset: rowNumber;
+        }
+
+            table tr::before {
+                display: table-cell;
+                counter-increment: rowNumber;
+                content: counter(rowNumber) ".";
+                padding-right: 0.3em;
+                padding-bottom: 0.1em;
+                text-align: right;
+            }
+    </style>
+
+    <title>All Group Role </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+    <script>
+        function CreateNewGroupRole() {
+            $.ajax({
+               //type: "POST",
+                url: '/BasePages/CreateRoleGroup/',
+                contentType: "application/text; charset=utf-8",
+                dataType: "text",
+                async: false,
+                success: function (data) {
+                  $('.modal-content').html(data);
+                  $("#myModal").modal("show");
+
+                }
+
+            })
+
+        }
+        function DeleteRoleGroup(Id) {
+            var x = new Object;
+              x.Id = Id.toString(),
+                $.ajax({
+                    type: 'POST',
+                    contentType: "application/json",
+                    dataType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(x),
+                    url: '@Url.Action("DeleteRoleGroup", "BasePages")',
+                    success: function (json) {
+                        alert(json.statusText);
+                    },
+                    error: function (x) {
+
+                        alert(x.statusText);
+                    }
+                })
+        }
+        function CreateRoleGroup() {
+            var Title = document.getElementById('TitleCreateGroupRole').value;
+            var Description = document.getElementById('DescriptionCreateGroupRole').value;
+          
+         
+                  var x = new Object;
+            x.Title = Title,
+            x.Description = Description,
+                $.ajax({
+                                    type: 'POST',
+                                    contentType: "application/json",
+                                    dataType: 'application/json; charset=utf-8',
+                                    data: JSON.stringify(x),
+                                    url: '@Url.Action("CreateRoleGroupd", "BasePages")',
+                                    success: function (json) {
+                                        alert(json.statusText);
+                                    },
+                                    error: function (x) {
+
+                                        alert(x.statusText);
+                                    }
+                                })
+        }
+        function showUserRoleGroups(Id) {
+            console.log(Id);
+           var groupNameId = Id;
+            $.ajax({
+                type: "POST",
+                url: '/BasePages/GetAllRolesGroupsForUser/' + Id,
+                contentType: "application/text; charset=utf-8",
+                dataType: "text",
+                async: false,
+                success: function (data) {
+                    $('.modal-content').html(data);
+                    $("#myModal").modal("show");
+                }
+
+            })
+        }
+        function Edit(Id) {
+
+            $.ajax({
+                        type: "POST",
+                        url: '/BasePages/EditRoleGroup/' + Id,
+                        contentType: "application/text; charset=utf-8",
+                        dataType: "text",
+                        async: false,
+                        success: function (data) {
+                            $('.modal-content').html(data);
+                            $("#myModal").modal("show");
+                        }
+
+                    })
+        }
+        function EditRoleGroupd()
+      {
+            var Title = document.getElementById('TitleEditGroup').value;
+            var Description = document.getElementById('DescriptionEditGroup').value;
+        var Id = document.getElementById('IdEditGroup').value;
+          
+            var x = new Object;
+            x.Title = Title,
+                x.Description = Description,
+            x.Id = Id,
+                $.ajax({
+                    type: 'POST',
+                    contentType: "application/json",
+                    dataType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(x),
+                    url: '@Url.Action("EditRoleGroupd", "BasePages")',
+                    success: function (json) {
+                        alert(json.statusText);
+                    },
+                    error: function (x) {
+
+                        alert(x.statusText);
+                    }
+                })
+        }
+        function ShowAllRolesThatGroupRoleHave(Id)
+        {
+            console.log(Id);
+         $.ajax({
+                type: "POST",
+                url: '/BasePages/GetAllRolesOfGroupRole/' + Id,
+                contentType: "application/text; charset=utf-8",
+                dataType: "text",
+                async: false,
+                success: function (data) {
+                    $('.modal-content').html(data);
+                    $("#myModal").modal("show");
+                }
+
+            })
+        }
+        function DeleteRoleForGroupRole(Id)
+        {
+            console.log(Id);
+            var x = new Object;
+            x.Title = Id.toString(),
+                $.ajax({
+                    type: 'POST',
+                    contentType: "application/json",
+                    dataType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(x),
+                    url: '@Url.Action("DeleteRoleFromRoleGroup", "BasePages")',
+                    success: function (json) {
+                        alert(json.statusText);
+                    },
+                    error: function (x) {
+
+                        alert(x.statusText);
+                    }
+                })
+        }
+        function AddRoleToGroupRole(Id)
+        {
+            
+            console.log(Id);
+            var e = document.getElementById("myDropDownGroupRolesForGroupRole");
+            var value = e.value;
+            console.log(value);
+            var text = e.options[e.selectedIndex].text;
+            if (value == '00000000-0000-0000-0000-000000000000') {
+                alert('choose a Role from Dropdown Options');
+            }
+            else {
+               
+                var x = new Object;
+                x.Id = Id,
+                    x.RoleId = value.toString(),
+                    $.ajax({
+                        type: 'POST',
+                        contentType: "application/json",
+                        dataType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(x),
+                        url: '@Url.Action("AddRoleToRoleGroup", "BasePages")',
+                        success: function (json) {
+                            alert(json.statusText);
+                        },
+                        error: function (x) {
+
+                            alert(x.statusText);
+                        }
+                    })
+            }
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <form class="Group-Roles-form" action="#" method="post">
+
+        <br />
+        <div class="row">
+            <a id="" onclick="CreateNewGroupRole()" class=" btn btn-primary">Create New Group Role</a>
+        </div>
+        <div class="row margtop20">
+           
+            <table class="table table-striped">
+                <tr>
+                    <th> Title </th>
+                    <th> Description </th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>Roles for GroupName</th>
+
+                </tr>
+
+                @foreach (var item in Model)
+
+                {
+
+                    <tr>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+
+                            @item.Description
+
+                        </td>
+                        <th><a id="@item.Id" onclick="Edit(this.id)" class=" btn btn-primary">Edit Group Name</a></th>
+                        <th><a id="@item.Id" onclick="DeleteRoleGroup(this.id)" class=" btn btn-primary">Delete Group Name</a></th>
+                        <th> <a id="@item.Id" onclick="ShowAllRolesThatGroupRoleHave(this.id)" class=" btn btn-primary">All Roles for Group Role</a></th>
+
+
+
+
+                    </tr>
+
+                }
+
+            </table>
+
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination row">
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("GetAllGroupRoleNames", new {  pageRow = ViewBag.PageRow,pageNumber = i })">@i</a>
+                    </li>
+
+                }
+            </ul>
+        </nav>
+        <br />
+
+        <div class="modal fade" id="myModal" role="dialog">
+
+            <div class="modal-dialog">
+
+
+
+                <!-- Modal content-->
+
+                <div class="modal-content">
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</body>
+
+</html>

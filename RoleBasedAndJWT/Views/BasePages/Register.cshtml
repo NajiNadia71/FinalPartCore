@@ -1,0 +1,53 @@
+﻿@model ViewModelAnd.RegisterModel
+@{
+    Layout = "_Layout";
+}
+
+<div class="container" style="padding-top:10%">
+    <div class="row"> <h1>Register form </h1></div>
+    <form method="post" enctype="multipart/form-data" asp-controller="BasePages" asp-action="Register">
+      
+    <div class="row"> 
+        <div class="col-sm">
+                <label for="Username">User Name:</label>            
+        </div>
+        <div class="col-sm">
+                <input type="text" id="UserName" name="UserName" value="@Model.Username" />                        
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <label for="Email">Email:</label>
+        </div>
+        <div class="col-sm">
+            <input type="text" id="Email" name="Email" value="@Model.Email" />
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm">
+                <label for="Password">Password:</label>
+        </div>
+        <div class="col-sm">
+                <input type="password" id="Password" name="Password" value="@Model.Password" />
+        </div>
+
+    </div>
+
+        <div class="row" style="padding-top:3%">
+           
+            <button type="submit" name="submit">Submit</button>
+        </div>
+       
+    </form>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4.</div>
+        <div class="col-4">.col-4</div>
+    </div>
+</div>
+<script type="text/javascript">
+  
+</script>

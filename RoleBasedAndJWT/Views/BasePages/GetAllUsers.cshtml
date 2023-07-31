@@ -1,0 +1,258 @@
+﻿@model IEnumerable<ViewModelAnd.User>
+@{
+   Layout = "_Layout";
+}
+
+
+<html lang="en">
+
+<head>
+    <style>
+        li {
+            display: inline;
+        }
+
+        table {
+            counter-reset: rowNumber;
+        }
+
+            table tr::before {
+                display: table-cell;
+                counter-increment: rowNumber;
+                content: counter(rowNumber) ".";
+                padding-right: 0.3em;
+                padding-bottom: 0.1em;
+                text-align: right;
+            }
+    </style>
+
+    <title>All Users </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+
+    <script>
+        var UserId='';
+        function ShowUserRoles(Id) {
+            UserId = Id;
+            $.ajax({
+               
+                type: "POST",
+
+                url: '/BasePages/GetAllRolesForUser/' + Id,
+
+                contentType: "application/text; charset=utf-8",
+
+                dataType: "text",
+
+                async: false,
+
+                success: function (data) {
+
+                    $('.modal-content').html(data);
+
+                    $("#myModal").modal("show");
+
+                }
+
+            })
+
+        }
+        function DeleteUserRole(Id) {
+            var x = new Object;
+            x.Id = Id.toString(),
+                $.ajax({
+                   type: 'POST',
+                    contentType: "application/json",
+                    dataType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(x),
+                    url: '@Url.Action("DeleteRolesForUser", "BasePages")',
+                    success: function (json) {
+                        alert(json.statusText);
+                    },
+                    error: function (x) {
+
+                        alert(x.statusText);
+                    }
+            })
+        }
+        function AddRolerToUser() {
+            var e = document.getElementById("myDropDownRoles");
+            var value = e.value;
+            console.log(value);
+            var text = e.options[e.selectedIndex].text;
+            if (value == '00000000-0000-0000-0000-000000000000') {
+                alert('choose a Role from Dropdown Options');
+            }
+            else {
+                var Id = UserId;
+                var x = new Object;
+                x.Id = UserId.toString(),
+                x.RoleId = value.toString(),
+                $.ajax({
+                    type: 'POST',
+                    contentType: "application/json",
+                    dataType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(x),
+                    url:'@Url.Action("AddRolesForUser", "BasePages")',
+                    success: function (json) {
+                            alert(json.statusText);
+                    },
+                    error: function (x) {
+                        
+                            alert(x.statusText);
+                    }
+                })
+            }
+        }
+
+        function showUserRoleGroups(Id)
+        {
+            UserId = Id;
+            $.ajax({
+                type: "POST",
+                url: '/BasePages/GetAllRolesGroupsForUser/' + Id,
+                contentType: "application/text; charset=utf-8",
+                dataType: "text",
+                async: false,
+                success: function (data) {
+                   $('.modal-content').html(data);
+                   $("#myModal").modal("show");
+                }
+
+            })
+        }
+        function AddGroupRoleToUser() {
+            var e = document.getElementById("myDropDownGroupRole");
+            var value = e.value;
+            console.log(value);
+            var text = e.options[e.selectedIndex].text;
+            if (value == '00000000-0000-0000-0000-000000000000') {
+                alert('choose a Role from Dropdown Options');
+            }
+            else {
+                var Id = UserId;
+                var x = new Object;
+                x.Id = UserId.toString(),
+                    x.RoleGroupId = value.toString(),
+                    $.ajax({
+                        type: 'POST',
+                        contentType: "application/json",
+                        dataType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(x),
+                        url: '@Url.Action("AddRoleGroupForUser", "BasePages")',
+                        success: function (json) {
+                            alert(json.statusText);
+                        },
+                        error: function (x) {
+
+                            alert(x.statusText);
+                        }
+                    })
+            }
+        }
+        function DeleteUserGroupRole(Id) {
+            var x = new Object;
+            x.Id = Id.toString(),
+                $.ajax({
+                    type: 'POST',
+                    contentType: "application/json",
+                    dataType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(x),
+                    url: '@Url.Action("DeleteRoleGroupForUser", "BasePages")',
+                    success: function (json) {
+                        alert(json.statusText);
+                    },
+                    error: function (x) {
+
+                        alert(x.statusText);
+                    }
+                })
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <form class="Create-Roles-form" action="#" method="post">
+
+        <br />
+        <div class="row margtop20">
+
+                    <table class="table table-striped">
+                <tr>
+                        <th> Name </th>
+                        <th> Email </th>
+                    <th>Role Groups</th>
+                    <th>Special Roles</th>
+
+                </tr>
+
+                @foreach (var item in Model)
+
+                {
+
+                    <tr>
+                            <td>
+                            @item.Name
+                        </td>
+                        <td>
+
+                            @item.Email
+
+                        </td>
+                        <th><a id="@item.Id" onclick="showUserRoleGroups(this.id)" class=" btn btn-primary">All User Role Groups</a></th>
+                        <th> <a id="@item.Id" onclick="ShowUserRoles(this.id)" class=" btn btn-primary">All Roles</a></th>
+
+                     
+                     
+
+                    </tr>
+
+                }
+
+            </table>
+
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination row">
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("GetAllUsers", new {  pageRow = ViewBag.PageRow,pageNumber = i })">@i</a>
+                    </li>
+
+                }
+            </ul>
+        </nav>
+        <br />
+
+        <div class="modal fade" id="myModal" role="dialog">
+
+            <div class="modal-dialog">
+
+
+
+                <!-- Modal content-->
+
+                <div class="modal-content">
+
+                   
+
+                  
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ViewModelAnd.Response>
+@{
+    Layout = "_Layout";
+}
+<style>
+li {
+  display: inline!important;
+}
+</style>
+
+<!-- Display the list of products -->
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <!-- Other table headers... -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.IdOfStatus</td>
+                    <td>@product.Message</td>
+                    <!-- Other table cells... -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination links -->
+<nav aria-label="Page navigation">
+    <ul class="pagination row">
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                <a class="page-link" href="@Url.Action("paginationWithBootstrap", new {  pageRow = ViewBag.PageRow,pageNumber = i })">@i</a>
+            </li>
+          
+        }
+    </ul>
+</nav>
+<div>
+  
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4.</div>
+        <div class="col-4">.col-4</div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+                var bootstrap = (typeof $()."Bootstrap-specific method" == 'function');
+                consolel.log(bootstrap);
+    </script>
+}
