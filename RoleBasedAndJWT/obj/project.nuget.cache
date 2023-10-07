@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DtqdcNt92HhuqcPw/ltKijZMPWOGGNRbx3BBA5kzRqqXlRMbQ+m4q6ulimgxMt8KRZiGhGev9vW9qTNnqN8Bsw==",
+  "dgSpecHash": "CuOBoquf8pfmO7Pb2XugsDYItrydyixxGFI1n8BsdLawjkpc7DjM4h+Gkv+xfrJkSqMuhkF/opvSHBltURJ46Q==",
   "success": true,
-  "projectFilePath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\RoleBasedAndJWT\\RoleBasedAndJWT.csproj",
+  "projectFilePath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\RoleBasedAndJWT\\RoleBasedAndJWT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nadia\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\nadia\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

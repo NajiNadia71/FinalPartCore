@@ -4221,11 +4221,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Bussiness\\Bussiness.csproj",
+      "projectUniqueName": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Bussiness\\Bussiness.csproj",
       "projectName": "Bussiness",
-      "projectPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Bussiness\\Bussiness.csproj",
+      "projectPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Bussiness\\Bussiness.csproj",
       "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
-      "outputPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Bussiness\\obj\\",
+      "outputPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Bussiness\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4242,11 +4242,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Model\\Model.csproj": {
-              "projectPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Model\\Model.csproj"
+            "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Model\\Model.csproj": {
+              "projectPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Model\\Model.csproj"
             },
-            "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\ViewModelAnd\\ViewModelAnd.csproj": {
-              "projectPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\ViewModelAnd\\ViewModelAnd.csproj"
+            "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\ViewModelAnd\\ViewModelAnd.csproj": {
+              "projectPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\ViewModelAnd\\ViewModelAnd.csproj"
             }
           }
         }

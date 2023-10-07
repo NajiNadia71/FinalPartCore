@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Model\\Model.csproj": {}
+    "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Model\\Model.csproj": {}
   },
   "projects": {
-    "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Model\\Model.csproj": {
+    "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Model\\Model.csproj",
+        "projectPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
-        "outputPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Model\\obj\\",
+        "outputPath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",

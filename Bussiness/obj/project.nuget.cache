@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AFlcRT0WLDVeqH0kCPLN4ClhsYdTHTL2hy7B6ekupFROPf70wxCRhwkm6pThMsd/nhARXzluhHwn/0yMB1mo/g==",
+  "dgSpecHash": "U04ZmQ6TTb/Ak+rrYxLkXb7ReJPCBPh4890EiiUVHvmi9jhYncY+rV7MH7PJs9p104U5kqd8UVZCtoXmtkuTgw==",
   "success": true,
-  "projectFilePath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWT\\Bussiness\\Bussiness.csproj",
+  "projectFilePath": "C:\\Nadia\\Projects\\core\\RoleBasedAndJWTGit\\FinalPartCore\\Bussiness\\Bussiness.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nadia\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\nadia\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

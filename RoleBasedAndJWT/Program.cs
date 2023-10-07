@@ -20,6 +20,9 @@ using Bussiness;
 using System.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Identity;
+using RoleBasedAndJWT;
+using Microsoft.AspNetCore.Builder;
+using WebApi.Authorization;
 
 // Early init of NLog to allow startup and exception logging, before host is built
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
@@ -30,14 +33,15 @@ try
 
     var services = builder.Services;
     var env = builder.Environment;
-
+  
     Microsoft.Extensions.Configuration.ConfigurationManager configuration = builder.Configuration;
     builder.Services.AddScoped<IRoleCRUDInterface, RoleCRUD>();
     builder.Services.AddScoped<IAuthenticationInterface, AuthenticationService>();
     builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
     // Add services to the container.
     builder.Services.AddRazorPages();
-
+    
+   
 
     services.AddCors();
 
@@ -103,6 +107,8 @@ try
     // builder.Services.AddScoped<IroleCRUDInterface, RoleCRUDService>();
     builder.Services.AddSwaggerGen();
     var app = builder.Build();
+    
+    app.UseMiddleware<JwtMiddleware>();
     // configure HTTP request pipeline
     {
         // global cors policy
