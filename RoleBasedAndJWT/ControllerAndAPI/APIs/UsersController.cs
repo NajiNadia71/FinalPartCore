@@ -7,7 +7,6 @@ using Model;
 using Bussiness;
 using Bussiness.Interfaces;
 
-[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class UsersController : ControllerBase

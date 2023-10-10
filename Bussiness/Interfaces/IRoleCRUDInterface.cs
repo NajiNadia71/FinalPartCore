@@ -51,5 +51,7 @@ namespace Bussiness.Interfaces
         public ViewModelAnd.GroupNameVM GetAllRoleGroupForGroupRole(int groupNameId);
         public IQueryable<GroupName> GetAllGroupNames();
         public Response CreateNewRoleToRoleGroup(Guid roleId, int groupNameId);
+
+        public Response HasTheRole(string roleName, string UserId);
     }
 }

@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using NuGet.Common;
 
 namespace RoleBasedAndJWT
 {
@@ -22,13 +23,7 @@ namespace RoleBasedAndJWT
         {
             return View();
         }
-        [HttpGet]
-        [Route("TestIfApiWorks")]
-        public Response TestIfApiWorks()
-        {
-            var Response = new Response { Message = "Ok", Status = "Ok Status" };
-            return Response;
-        }
+     
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
@@ -41,12 +36,17 @@ namespace RoleBasedAndJWT
             }
             if (x.ErrorCode == ErrorCodeEnum.Ok)
             {
-                return Ok(new
-                {
-                    Token = x.Token,
-                    RefreshToken = x.RefreshToken,
-                    Expiration = x.Expiration
-                });
+                //return Ok(new
+                //{
+                //    Token = x.Token,
+                //    RefreshToken = x.RefreshToken,
+                //    Expiration = x.Expiration
+                //});
+                Response.Cookies.Append("X-Access-Token", x.Token, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
+             //   Response.Cookies.Append("X-Username", x.na, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
+                Response.Cookies.Append("X-Refresh-Token", x.RefreshToken, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
+
+                return Ok();
             }
             else
             {

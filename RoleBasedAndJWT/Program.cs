@@ -1,21 +1,16 @@
 using NLog;
 using NLog.Web;
-using BCryptNet = BCrypt.Net.BCrypt;
 using System.Text.Json.Serialization;
-//using WebApi.Authorization;
 using Model;
 using ViewModelAnd;
 using Bussiness.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-///using Microsoft.AspNetCore.Identity;
-//using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Model.ModelClass;
 using Bussiness.Interfaces;
-using Bussiness.Services;
 using Bussiness;
 using System.Configuration;
 using Microsoft.Extensions.Options;
@@ -37,6 +32,7 @@ try
     Microsoft.Extensions.Configuration.ConfigurationManager configuration = builder.Configuration;
     builder.Services.AddScoped<IRoleCRUDInterface, RoleCRUD>();
     builder.Services.AddScoped<IAuthenticationInterface, AuthenticationService>();
+    builder.Services.AddScoped<IRoleCheckHelper, RoleCheckHelper>();
     builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
     // Add services to the container.
     builder.Services.AddRazorPages();
@@ -49,7 +45,7 @@ try
     builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddRoles<IdentityRole>();
-       // .AddDefaultTokenProviders();
+ ///    .AddDefaultTokenProviders();
 
 
     //builder.Services.AddIdentityCore<IdentityUser>(
@@ -58,14 +54,26 @@ try
     //.AddEntityFrameworkStores<ApplicationDbContext>();
 
     // Adding Authentication First Attempt
-    //    builder.Services.AddAuthentication(options =>
-    //    {
-    //        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    //        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    //        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+
+    //builder.Services.AddAuthentication(options =>
+    //{
+    //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    //    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
 
     //})
+    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(options => {
+            options.Events = new JwtBearerEvents
+            {
+                OnMessageReceived = context =>
+                {
+                    context.Token = context.Request.Cookies["X-Access-Token"];
+                    return Task.CompletedTask;
+                }           
+        };
+        });
 
     // Adding Jwt Bearer First Attempt 
     //.AddJwtBearer(options =>
@@ -108,7 +116,7 @@ try
     builder.Services.AddSwaggerGen();
     var app = builder.Build();
     
-    app.UseMiddleware<JwtMiddleware>();
+   /// app.UseMiddleware<JwtMiddleware>();
     // configure HTTP request pipeline
     {
         // global cors policy

@@ -30,18 +30,56 @@ namespace Bussiness
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
-        public AuthenticationService(
-            ApplicationDbContext context,
-         UserManager<ApplicationUser> userManager,
-         RoleManager<IdentityRole> roleManager,
-         IConfiguration configuration)
+        public AuthenticationService(ApplicationDbContext context,UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager,IConfiguration configuration)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
         }
-      
+
+        public async Task<LoginResponseViewModel> LoginOnlyJWTtokenAndRefreshToken([FromBody] LoginModel model)
+        {
+            try
+            {
+                var user = await _userManager.FindByNameAsync(model.Username);
+                if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+                {
+                    var authClaims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier, user.Id),
+                    //new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                };
+                    var token = CreateToken(authClaims);
+                    var refreshToken = GenerateRefreshToken();
+                    _ = int.TryParse(_configuration["JWT:RefreshTokenValidityInDays"], out int refreshTokenValidityInDays);
+
+                    user.RefreshToken = refreshToken;
+                    user.RefreshTokenExpiryTime = DateTime.Now.AddDays(refreshTokenValidityInDays);
+                    var xsss = await _userManager.UpdateAsync(user);
+
+                    return (new LoginResponseViewModel
+                    {
+
+                        Token = new JwtSecurityTokenHandler().WriteToken(token),
+                        RefreshToken = refreshToken,
+                        Expiration = token.ValidTo,
+                        ErrorCode = ErrorCodeEnum.Authorize,
+                    });
+
+                }
+                else
+                {
+                    return (new LoginResponseViewModel { ErrorCode = ErrorCodeEnum.NotAuthorize });
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = ex.Message;
+                throw new Exception(message);
+            }
+        
+        }
         public async Task<LoginResponseViewModel> Login([FromBody] LoginModel model)
         {
             try
@@ -85,7 +123,7 @@ namespace Bussiness
                     foreach (var item in userRoles)
                     {
                         Roles.Add(item);
-                        _userManager.AddToRoleAsync(user, item);
+                        _userManager.AddToRoleAsync(user,item);
                         authClaims.Add(new Claim(ClaimTypes.Role, item));
                     }
                     //foreach (var userRole in userEspecialRoles)
@@ -118,6 +156,7 @@ namespace Bussiness
 
                     return (new LoginResponseViewModel
                     {
+                   
                       ///  UserGroups = GroupRoles,
                         UserRoles = Roles,
                         Token = new JwtSecurityTokenHandler().WriteToken(token),
@@ -141,7 +180,7 @@ namespace Bussiness
             try
             {
                 var listOfRole=new List<string>();
-                var userItem = _context.Users.Where(i => i.Id == user.Id).FirstOrDefault();
+                var userItem = _context.ApplicationUser.Where(i => i.Id == user.Id).FirstOrDefault();
                     var userEspecialRoles = _context.UserRoles.Include(i => i.Role).Where(i => i.UserId == user.Id).ToList();
                     var RolesInRoleGroups = _context.RoleGroups.Select(i => i.Role.Title).ToList();
                    // var authClaims = new List<Claim>{};

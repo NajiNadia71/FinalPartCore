@@ -21,6 +21,7 @@ namespace Bussiness.Interfaces
     {
         public  Task<IList<string>> GetRolesAsync2(ApplicationUser user);
         public  Task<LoginResponseViewModel> Login([FromBody] LoginModel model);
+        public Task<LoginResponseViewModel> LoginOnlyJWTtokenAndRefreshToken([FromBody] LoginModel model);
         public  Task<Response> Register([FromBody] RegisterModel model);
         
         public  Task<Response> RegisterAdmin([FromBody] RegisterModel model);

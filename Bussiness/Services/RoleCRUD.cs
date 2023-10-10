@@ -1,4 +1,5 @@
 ﻿using Bussiness.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Model;
@@ -576,6 +577,47 @@ namespace Bussiness.Services
             {
                 _logger.LogDebug("Some Error in add Role in GroupRole with Error Message Of {message}", ex.Message);
                 throw new Exception(ex.Message.ToString());
+            }
+        }
+        public Response HasTheRole(string roleName, string UserId)
+        {
+            try
+            {
+                var userIdExists = _context.ApplicationUser.Where(i=>i.Id== UserId).Any();
+                if (!userIdExists)
+                {
+                    return (new Response
+                    {
+                        ErrorCode = ErrorCodeEnum.DosentExiteInDatabase,
+                    });
+                }
+
+                else
+                {
+                    var roleId = _context.Roles.Where(i => i.Title == roleName).Select(i => i.Id).FirstOrDefault();
+                    var HasRoleInUserRoles = _context.UserRoles.Where(i => i.UserId == UserId && i.RoleId == roleId).Any();
+                if (HasRoleInUserRoles)
+                        return (new Response
+                        {
+                            ErrorCode = ErrorCodeEnum.Ok,
+                        }
+                            );
+                    else
+                    {
+                        return (new Response
+                        {
+                            ErrorCode = ErrorCodeEnum.NotAuthorize,
+                        }
+                          );
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                var message = ex.Message + " " + ex.InnerException.Message;
+                return (new Response { Status = "Success", Message = message, ErrorCode = ErrorCodeEnum.Ok });
+
             }
         }
     }

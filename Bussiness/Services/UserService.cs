@@ -43,7 +43,7 @@ namespace Bussiness.Services
             // validate
             /// if (user == null || !BCrypt.Verify(model.Password, user.PasswordHash))
             /// 
-            var user = _context.Users.Where(x => x.UserName == model.Username).FirstOrDefault();
+            var user = _context.ApplicationUser.Where(x => x.UserName == model.Username).FirstOrDefault();
             var IsOk = IsUserCredentialOk(user, model.Password);
             throw new AppException("Username or password is incorrect");
 
@@ -56,7 +56,7 @@ namespace Bussiness.Services
 
         public IEnumerable<User> GetAll()
         {
-            return _context.Users.Select(i =>
+            return _context.ApplicationUser.Select(i =>
                 new ViewModelAnd.User
                 {
                     Email = i.Email,
@@ -67,7 +67,7 @@ namespace Bussiness.Services
 
         public User GetById(string id)
         {
-            var user = _context.Users.Find(id);
+            var user = _context.ApplicationUser.Find(id);
             var X=    new ViewModelAnd.User
                 {
                     Email = user.Email,

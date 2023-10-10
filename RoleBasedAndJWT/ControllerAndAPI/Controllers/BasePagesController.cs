@@ -13,7 +13,13 @@ using NuGet.Packaging.Signing;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
-
+using System.Net;
+using NuGet.Common;
+using RoleBasedAndJWT.Pages;
+using System.IdentityModel.Tokens.Jwt;
+using Model.Migrations;
+using System.Security.Claims;
+using Bussiness;
 namespace RoleBasedAndJWT
 {
     public class BasePagesController : Controller
@@ -68,27 +74,23 @@ namespace RoleBasedAndJWT
         public async Task<IActionResult> Login(LoginModel loginModel)
         {
             try {  
-            var x = await Authentication1.Login(loginModel);
-            ///GetAllRolesGroupsForUser
+            var x = await Authentication1.LoginOnlyJWTtokenAndRefreshToken(loginModel);
+       
             if (x.ErrorCode == ErrorCodeEnum.NotAuthorize)
             {
                 return Unauthorized();
             }
             if (x.ErrorCode == ErrorCodeEnum.Authorize)
             {
-                    
-                    var y = (new
-                    {
-                        Token = x.Token,
-                        RefreshToken = x.RefreshToken,
-                        Expiration = x.Expiration,
-                        UserRole = x.UserRoles,
-                        //UserGroup = x.UserGroups,
-                        authClaims = x.UserRoles,
+     
+                    Response.Cookies.Append("X-ErrorCode", x.ErrorCode.ToString(), new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
+                    Response.Cookies.Append("X-Access-Token", x.Token, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
+                    Response.Cookies.Append("X-Expiration", x.Expiration.ToString(), new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
+                    Response.Cookies.Append("X-Refresh-Token", x.RefreshToken, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.Strict });
 
-                    });
-                    var xhecxkif = y.UserRole.Where(i => i == "GetAllRolesGroupsForUser").FirstOrDefault();
-                return RedirectToAction("GetUserInfo", "BasePages", y);
+                    return RedirectToAction("GetAllUsers", "BasePages");
+             
+               
             }
             else
             {
@@ -133,11 +135,11 @@ namespace RoleBasedAndJWT
             }
         }
         #region RoleForUser
-      /// <summary>
-      ///  [Authorize(Roles = "GetAllRolesGroupsForUser")]
-      /// </summary>
-      /// <param name="Id"></param>
-      /// <returns></returns>
+        /// <summary>
+        [CustomAuthorizeRole("Admin")]
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public IActionResult GetAllRolesForUser(string Id)
         {
             try
@@ -404,6 +406,8 @@ namespace RoleBasedAndJWT
         #region BasicLevelRoleAccess
         public IActionResult GetUserInfo()
         {
+             //string? UserName = Request.Cookies["X-Access-Token"];
+            //int? UserId = Convert.ToInt32(Request.Cookies["X-Refresh-Token"]);
             return View();
         }
         #endregion
