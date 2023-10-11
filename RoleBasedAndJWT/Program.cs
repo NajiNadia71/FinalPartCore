@@ -36,8 +36,8 @@ try
     builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
     // Add services to the container.
     builder.Services.AddRazorPages();
-    
-   
+
+ 
 
     services.AddCors();
 
